@@ -1,3 +1,19 @@
-from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
 
-# Create your views here.
+from .models import City, Street
+from .serializers import CitySerializer, StreetSerializer, ShopSerializer
+
+
+class CityViewSet(ModelViewSet):
+    queryset = City.objects.all()
+    serializer_class = CitySerializer
+
+
+class StreetViewSet(ModelViewSet):
+    queryset = Street.objects.all()
+    serializer_class = StreetSerializer
+
+
+class ShopViewSet(ModelViewSet):
+    queryset = Street.objects.all()
+    serializer_class = ShopSerializer
