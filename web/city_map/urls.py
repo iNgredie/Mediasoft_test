@@ -1,8 +1,9 @@
+from django.conf.urls import url
 from rest_framework import routers
 
-from .views import CityViewSet, StreetViewSet, ShopViewSet
+from .views import CityViewSet, StreetViewSet, ShopViewSet, StreetsInTheCityList
 
-urlpatterns = []
+urlpatterns = [url('city/(?P<pk>[^/.]+)/street', StreetsInTheCityList.as_view())]
 
 router = routers.SimpleRouter()
 router.register(r'city', CityViewSet)

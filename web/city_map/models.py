@@ -5,15 +5,15 @@ class City(models.Model):
     title = models.CharField('название', max_length=255, unique=True)
 
     def __str__(self):
-        return self.title
+        return '%s' % self.title
 
 
 class Street(models.Model):
     title = models.CharField('название', max_length=255)
-    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='streets')
 
     def __str__(self):
-        return self.title
+        return '%s' % self.title
 
 
 class Shop(models.Model):
@@ -24,7 +24,6 @@ class Shop(models.Model):
     opening_time = models.TimeField('время открытия')
     closing_time = models.TimeField('время закрытия')
 
-
     def __str__(self):
-        return self.city, self.street
+        return f'{self.title}, {self.city.title}, {self.street.title}'
 
