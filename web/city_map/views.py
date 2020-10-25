@@ -21,11 +21,12 @@ class StreetViewSet(ModelViewSet):
 class ShopViewSet(ModelViewSet):
     queryset = Shop.objects.all()
     serializer_class = ShopSerializer
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['street', 'city']
 
-    # def get_status(self):
-    #     if time.strftime("%H:%M:%S") > Shop.objects.get()
+    localtime = time.strftime("%H:%M:%S")
+    Shop.get_status(queryset, localtime)
+
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['street', 'city', 'open']
 
 
 class StreetsInTheCityList(generics.ListAPIView):
