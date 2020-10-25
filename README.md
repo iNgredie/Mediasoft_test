@@ -1,5 +1,9 @@
 # Mediasoft_test
 
+`pip install -r requirements.txt`
+
+
+
 Swagger   
 `/api/`
 
