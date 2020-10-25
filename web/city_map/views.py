@@ -5,17 +5,12 @@ from rest_framework import generics
 from rest_framework.viewsets import ModelViewSet
 
 from .models import City, Street, Shop
-from .serializers import CitySerializer, StreetSerializer, ShopSerializer, StreetsInTheCitySerializer
+from .serializers import CitySerializer, ShopSerializer, StreetsInTheCitySerializer
 
 
 class CityViewSet(ModelViewSet):
     queryset = City.objects.all()
     serializer_class = CitySerializer
-
-
-class StreetViewSet(ModelViewSet):
-    queryset = Street.objects.all()
-    serializer_class = StreetSerializer
 
 
 class ShopViewSet(ModelViewSet):

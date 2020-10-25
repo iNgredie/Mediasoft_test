@@ -8,14 +8,7 @@ class CitySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = City
-        fields = ('title', 'streets')
-
-
-class StreetSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Street
-        fields = ('title', 'city')
+        fields = ('id', 'title', 'streets')
 
 
 class ShopSerializer(serializers.ModelSerializer):
