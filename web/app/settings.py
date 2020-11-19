@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
 
-
     'city_map',
 ]
 
@@ -85,7 +84,7 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ms_db',
+        'NAME': 'ms_db_2',
         'USER': 'postgres',
         'PASSWORD': 'passwordtest',
         'HOST': 'localhost',

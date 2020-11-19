@@ -1,5 +1,3 @@
-import time
-
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics
 from rest_framework.viewsets import ModelViewSet
@@ -13,20 +11,16 @@ class CityViewSet(ModelViewSet):
     serializer_class = CitySerializer
 
 
-class ShopViewSet(ModelViewSet):
-    queryset = Shop.objects.all()
-    serializer_class = ShopSerializer
-
-    localtime = time.strftime("%H:%M:%S")
-    Shop.get_status(queryset, localtime)
-
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['street', 'city', 'open']
-
-
 class StreetsInTheCityList(generics.ListAPIView):
     serializer_class = StreetsInTheCitySerializer
 
     def get_queryset(self):
         pk = self.kwargs['pk']
         return Street.objects.filter(city_id=pk)
+
+
+class ShopViewSet(ModelViewSet):
+    queryset = Shop.objects.all()
+    serializer_class = ShopSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['street', 'city', 'open']
